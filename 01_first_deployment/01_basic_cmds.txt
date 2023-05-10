@@ -1,0 +1,29 @@
+kubectl get nodes
+kubectl config get-contexts
+kubectl config use-context docker-desktop
+
+kubectl get nodes
+kubectl get pods 
+kubectl get services  (or) kubectl get svc
+kubectl get namespace
+kubectl delete pods  <PODNAME>
+kubectl get deployment
+
+---NotWorking-----
+--When we run the below commands the service and deployments are created. But the service is not visible outside.
+kubectl run my-app2 --image=nginx --port=80 
+kubectl expose deployment my-app2 --type=NodePort --port=80 --target-port=8081
+
+kubectl create deployment --image=nginx nginx-app
+kubectl expose deployment nginx-app --port=8087  --target-port=80 --name=nginx-http --type=NodePort
+
+---Wroking---
+
+kubectl create deployment --image=nginx nginx-app
+kubectl expose deployment nginx-app --port=8087  --target-port=80 --name=nginx-http --type=LoadBalancer
+
+---Wroking---
+kubectl apply -f https://k8s.io/examples/service/load-balancer-example.yaml
+kubectl expose deployment hello-world --type=LoadBalancer --name=my-service
+kubectl expose deployment hello-world --type=LoadBalancer --name=my-service2 --port=8089 --target-port=80
+--port 80 of the container will be exposed to 8089 of the localhost
