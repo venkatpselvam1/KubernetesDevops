@@ -1,4 +1,7 @@
- docker build -t venakt-img:2.0 .  
+docker build -t venakt-img:2.0 .  
 //make sure you have a file with name Dockerfile
 
 docker run -d -p 8087:3000 venkat-img:2.0
+
+kubectl create deployment --image=venkat-img:2.0 venkat-deployment
+kubectl expose deployment venkat-deployment --port=8091 --target-port=3000 --type=LoadBalancer
