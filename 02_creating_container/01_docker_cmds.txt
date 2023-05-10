@@ -1,4 +1,4 @@
-docker build -t venakt-img:2.0 .  
+docker build -t venkat-img:2.0 .  
 //make sure you have a file with name Dockerfile
 
 docker run -d -p 8087:3000 venkat-img:2.0

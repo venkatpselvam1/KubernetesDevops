@@ -2,6 +2,7 @@ var exp = require('express');
 var app = exp()
 
 app.get('/', function(req, res){
+console.log('venkat server req');
 res.send('hello wrod!');
 });
 

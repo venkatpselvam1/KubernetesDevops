@@ -1,0 +1,8 @@
+kubectl attach <podname>
+
+kubectl attach venkat-deployment-6ff9d7864-wp2ml
+kubectl exec venkat-deployment-6ff9d7864-wp2ml -- ls
+kubectl logs venkat-deployment-6ff9d7864-wp2ml
+
+kubectl describe services venkat-deployment
+kubectl exec -it venkat-deployment-6ff9d7864-wp2ml bash
